@@ -1,15 +1,23 @@
 package lt.kucinskas.demobackend.Model.Employee;
 
+import lt.kucinskas.demobackend.Model.Picture.Picture;
+
 public class Administrator extends Employee{
 
     private boolean isAdministrator;
 
     //    Constructors
 
-    public Administrator(String employeeId, String personId, String firstName, String lastName, String sex, String phoneNumber, String email, boolean isAdministrator) {
-        super(employeeId, personId, firstName, lastName, sex, phoneNumber, email);
+    public Administrator(String personId, String firstName, String lastName, String sex, Picture picture, String phoneNumber, String email, String employeeId, boolean isAdministrator) {
+        super(personId, firstName, lastName, sex, picture, phoneNumber, email, employeeId);
         this.isAdministrator = isAdministrator;
     }
+
+    public Administrator(String employeeId, boolean isAdministrator) {
+        super(employeeId);
+        this.isAdministrator = isAdministrator;
+    }
+
 
 //    Getters and Setters
 

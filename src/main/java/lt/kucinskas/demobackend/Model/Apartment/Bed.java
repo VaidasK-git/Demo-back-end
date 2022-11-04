@@ -1,6 +1,6 @@
 package lt.kucinskas.demobackend.Model.Apartment;
 
-import Model.Date.Date;
+import lt.kucinskas.demobackend.Model.Date.Date;
 
 import java.util.ArrayList;
 

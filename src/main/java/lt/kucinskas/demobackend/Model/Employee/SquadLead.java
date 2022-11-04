@@ -1,15 +1,23 @@
 package lt.kucinskas.demobackend.Model.Employee;
 
+import lt.kucinskas.demobackend.Model.Picture.Picture;
+
 public class SquadLead extends Employee{
 
     private boolean isSquadLead;
 
 //    Constructors
 
-    public SquadLead(String employeeId, String personId, String firstName, String lastName, String sex, String phoneNumber, String email, boolean isSquadLead) {
-        super(employeeId, personId, firstName, lastName, sex, phoneNumber, email);
+    public SquadLead(String personId, String firstName, String lastName, String sex, Picture picture, String phoneNumber, String email, String employeeId, boolean isSquadLead) {
+        super(personId, firstName, lastName, sex, picture, phoneNumber, email, employeeId);
         this.isSquadLead = isSquadLead;
     }
+
+    public SquadLead(String employeeId, boolean isSquadLead) {
+        super(employeeId);
+        this.isSquadLead = isSquadLead;
+    }
+
 
 //    Getters and Setters
 

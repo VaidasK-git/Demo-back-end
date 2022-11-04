@@ -1,7 +1,6 @@
 package lt.kucinskas.demobackend.Model.Apartment;
 
 public class Coordinates {
-
     private String coordinatesId;
     private String latitude;
     private String longitude;

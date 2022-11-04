@@ -1,9 +1,10 @@
 package lt.kucinskas.demobackend.Model.Reservation;
 
-import Model.Apartment.Apartment;
-import Model.Date.Date;
-import Model.Employee.Employee;
-import Model.Employee.SquadLead;
+
+import lt.kucinskas.demobackend.Model.Apartment.Apartment;
+import lt.kucinskas.demobackend.Model.Date.Date;
+import lt.kucinskas.demobackend.Model.Employee.Employee;
+import lt.kucinskas.demobackend.Model.Employee.SquadLead;
 
 public class Reservation {
 
@@ -12,15 +13,20 @@ public class Reservation {
     private SquadLead squadLead;
     private Date reservationDate;
     private Apartment apartment;
+    private ReservationStatus reservationStatus;
+    private String notes;
+
 
 //    Constructors
 
-    public Reservation(String reservationId, Employee employee, SquadLead squadLead, Date reservationDate, Apartment apartment) {
+    public Reservation(String reservationId, Employee employee, SquadLead squadLead, Date reservationDate, Apartment apartment, ReservationStatus reservationStatus, String notes) {
         this.reservationId = reservationId;
         this.employee = employee;
         this.squadLead = squadLead;
         this.reservationDate = reservationDate;
         this.apartment = apartment;
+        this.reservationStatus = reservationStatus;
+        this.notes = notes;
     }
 
     public Reservation() {
@@ -68,7 +74,23 @@ public class Reservation {
         this.apartment = apartment;
     }
 
-//    Override
+    public ReservationStatus getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(ReservationStatus reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    //    Override
 
     @Override
     public String toString() {

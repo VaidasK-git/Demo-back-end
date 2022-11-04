@@ -1,23 +1,31 @@
 package lt.kucinskas.demobackend.Model.Employee;
 
+import lt.kucinskas.demobackend.Model.Picture.Picture;
+
 public class Person {
 
     private String personId;
     private String firstName;
     private String lastName;
     private String sex;
+
+    private Picture picture;
     private String phoneNumber;
     private String email;
 
 //    Constructors
 
-    public Person(String personId, String firstName, String lastName, String sex, String phoneNumber, String email) {
+    public Person(String personId, String firstName, String lastName, String sex,Picture picture, String phoneNumber, String email) {
         this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
+        this.picture = picture;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+
+    public Person() {
     }
 
     //    Getters and Setters
@@ -79,6 +87,7 @@ public class Person {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", sex='" + sex + '\'' +
+                ", picture=" + picture +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';

@@ -1,12 +1,15 @@
 package lt.kucinskas.demobackend.Model.Date;
 
 public class Date {
+
+    private String dateId;
     private String startDate;
     private String endDate;
 
 //    Constructors
 
-    public Date(String startDate, String endDate) {
+    public Date(String dateId, String startDate, String endDate) {
+        this.dateId = dateId;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -15,6 +18,14 @@ public class Date {
     }
 
 //    Getters and Setters
+
+    public String getDateId() {
+        return dateId;
+    }
+
+    public void setDateId(String dateId) {
+        this.dateId = dateId;
+    }
 
     public String getStartDate() {
         return startDate;

@@ -1,7 +1,9 @@
 package lt.kucinskas.demobackend.Model.Apartment;
 
-public interface Methods {
+import lt.kucinskas.demobackend.Model.Picture.Picture;
 
+public interface Methods {
+    default public void add() {}
     default int count(){
         return 0;
     }

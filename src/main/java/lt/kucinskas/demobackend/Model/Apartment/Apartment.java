@@ -1,5 +1,7 @@
 package lt.kucinskas.demobackend.Model.Apartment;
 
+import lt.kucinskas.demobackend.Model.Picture.Picture;
+
 import java.util.ArrayList;
 
 public class Apartment implements Methods {
@@ -8,7 +10,8 @@ public class Apartment implements Methods {
     private Address address;
     private Coordinates coordinates;
     private ArrayList<Room> rooms;
-
+    private ArrayList<Picture> pictures;
+    private String description;
     private int numberOfRooms;
     private int numberOfFreeRooms;
     private int numberOfBeds;
@@ -17,11 +20,13 @@ public class Apartment implements Methods {
 
 //    Constructors
 
-    public Apartment(String apartmentId, Address address, Coordinates coordinates) {
+    public Apartment(String apartmentId, Address address, Coordinates coordinates, String description) {
         this.apartmentId = apartmentId;
         this.address = address;
         this.coordinates = coordinates;
+        this.description = description;
         this.rooms = new ArrayList<>();
+        this.pictures = new ArrayList<>();
     }
 
     public Apartment() {
@@ -102,6 +107,9 @@ public class Apartment implements Methods {
 
     public void add(Room room) {
         rooms.add(room);
+    }
+
+    public void add(Picture picture) { pictures.add(picture);
     }
 
     public int count(){
