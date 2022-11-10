@@ -1,4 +1,4 @@
-package lt.kucinskas.demobackend.Model.Reservation;
+package lt.kucinskas.demobackend.model.reservation;
 
 public enum ReservationStatus {
     PENDING,

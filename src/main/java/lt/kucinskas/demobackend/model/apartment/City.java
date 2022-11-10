@@ -1,4 +1,4 @@
-package lt.kucinskas.demobackend.Model.Apartment;
+package lt.kucinskas.demobackend.model.apartment;
 
 public enum City {
 
