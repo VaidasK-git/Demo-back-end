@@ -16,12 +16,17 @@
 	<properties>
 		<java.version>17</java.version>
 		<lombok.version>1.18.24</lombok.version>
-		<flyway.version>5.2.4</flyway.version>
+		<flyway.version>9.7.0</flyway.version>
 		<h2.version>2.1.214</h2.version>
 		<checkstyle.version>3.2.0</checkstyle.version>
 		<surefire.version>2.19.1</surefire.version>
 		<jxr.version>3.3.0</jxr.version>
 		<postgresql.version>42.5.0</postgresql.version>
+
+		<database.url>jdbc:postgresql://localhost:5432/postgres</database.url>
+		<database.user>myusername</database.user>
+		<database.password>mypassword</database.password>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -53,7 +58,6 @@
 			<version>${h2.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -74,18 +78,22 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>${flyway.version}</version>
 				<configuration>
-					<url>jdbc:h2:file:./target/foobar</url>
-					<user>sa</user>
+					<sqlMigrationSeparator>__</sqlMigrationSeparator>
+					<locations>
+						<location>filesystem:src/main/resources/flyway/migrations</location>
+					</locations>
+					<url>${database.url}</url>
+					<user>${database.user}</user>
+					<password>${database.password}</password>
 				</configuration>
 				<dependencies>
 					<dependency>
-						<groupId>com.h2database</groupId>
-						<artifactId>h2</artifactId>
-						<version>${2.1.214}</version>
+						<groupId>org.postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>${postgresql.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
-
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -107,7 +115,6 @@
 				<artifactId>maven-jxr-plugin</artifactId>
 				<version>${jxr.version}</version>
 			</plugin>
-
 
 		</plugins>
 	</build>
