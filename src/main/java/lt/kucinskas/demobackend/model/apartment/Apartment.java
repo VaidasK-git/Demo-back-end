@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Entity(name = "apartments")
+@Entity
+@Table(name="apartments", schema = "reservation")
 public class Apartment {
 
     @Id

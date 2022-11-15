@@ -1,6 +1,6 @@
-CREATE SEQUENCE IF NOT EXISTS hibernate_sequence START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREMENT BY 1;
 
-CREATE TABLE reservations
+CREATE TABLE reservation.reservations
 (
     id                     BIGINT NOT NULL,
     employee_id            BIGINT,

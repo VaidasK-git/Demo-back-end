@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Entity(name = "rooms")
+@Entity
+@Table(name="rooms", schema = "reservation")
 public class Room {
 
     @Id

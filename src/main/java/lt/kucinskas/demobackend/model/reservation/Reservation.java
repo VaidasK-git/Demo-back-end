@@ -9,7 +9,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 
 @Data
-@Entity(name="reservations")
+@Entity
+@Table(name="reservations", schema = "reservation")
 public class Reservation {
 
     @Id
