@@ -53,11 +53,9 @@ public class Apartment {
     private String longitude;
 
     @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    @Column(name = "rooms")
     private List<Room> rooms = new ArrayList<>();
 
     @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
-    @Column(name = "pictures")
     private List<Picture> pictures;
 
     @Column(name = "description", columnDefinition = "VARCHAR(50) NOT NULL")
