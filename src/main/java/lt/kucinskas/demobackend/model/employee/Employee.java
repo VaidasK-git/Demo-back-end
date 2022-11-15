@@ -3,6 +3,8 @@ package lt.kucinskas.demobackend.model.employee;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +15,6 @@ import lombok.Data;
 import lt.kucinskas.demobackend.model.picture.Picture;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-
 
 
 @Data
@@ -37,7 +38,7 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Picture picture;
 
-    @Column(name = "squad_lead_id", columnDefinition = "INT NOT NULL")
+    @Column(name = "squad_lead_id", columnDefinition = "BIGINT NOT NULL")
     private Long squadLeadId;
 
     @Column(name = "phone_number", columnDefinition = "VARCHAR(50) NOT NULL")
@@ -46,8 +47,9 @@ public class Employee {
     @Column(name = "email", columnDefinition = "VARCHAR(50) NOT NULL")
     private String email;
 
-    @Column(name = "employee_role")
-    private String employeeRole;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "employee_role", columnDefinition = "NOT NULL")
+    private EmployeeRoles employeeRoles;
 
     @CreatedDate
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

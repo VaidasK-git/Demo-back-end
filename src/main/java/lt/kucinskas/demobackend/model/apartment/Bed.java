@@ -2,6 +2,8 @@ package lt.kucinskas.demobackend.model.apartment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,8 @@ public class Bed {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "bed_size", columnDefinition = "VARCHAR(50) NOT NULL")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "bed_size", columnDefinition = "NOT NULL")
     private BedSize bedSize;
 
     @CreatedDate
@@ -36,3 +39,6 @@ public class Bed {
     private Room room;
 
 }
+
+
+

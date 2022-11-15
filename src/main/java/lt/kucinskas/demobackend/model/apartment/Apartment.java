@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,12 +26,13 @@ public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "country", nullable = false)
+    private Country country;
 
-    @Column(name = "country", columnDefinition = "VARCHAR(50) NOT NULL")
-    private String country;
-
-    @Column(name = "city", columnDefinition = "VARCHAR(50) NOT NULL")
-    private String city;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "city", columnDefinition = "NOT NULL")
+    private City city;
 
     @Column(name = "street_name", columnDefinition = "VARCHAR(50) NOT NULL")
     private String streetName;

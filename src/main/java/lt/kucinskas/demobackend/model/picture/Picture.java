@@ -2,6 +2,8 @@ package lt.kucinskas.demobackend.model.picture;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +29,8 @@ public class Picture {
     @Column(name = "url", columnDefinition = "VARCHAR(50) NOT NULL")
     private String url;
 
-    @Column(name = "picture_role", columnDefinition = "VARCHAR(50) NOT NULL")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "picture_role", columnDefinition = "NOT NULL")
     private PictureRole pictureRole;
 
     @CreatedDate

@@ -4,7 +4,7 @@ CREATE TYPE pictureRole AS ENUM ('EMPLOYEE', 'APARTMENT');
 
 CREATE TABLE reservation.pictures
 (
-    id           SERIAL,
+    id           BIGSERIAL NOT NULL,
     url          VARCHAR(50) NOT NULL,
     picture_role pictureRole NOT NULL,
     created_at   TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),

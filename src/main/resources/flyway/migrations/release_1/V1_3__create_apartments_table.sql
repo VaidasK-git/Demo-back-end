@@ -5,7 +5,7 @@ CREATE TYPE city AS ENUM ('Chicago', 'Kaunas', 'Klaipeda', 'London', 'New York',
 
 CREATE TABLE reservation.apartments
 (
-    id           SERIAL,
+    id           BIGSERIAL NOT NULL,
     country      country NOT NULL,
     city         city NOT NULL,
     street_name  VARCHAR(50) NOT NULL,

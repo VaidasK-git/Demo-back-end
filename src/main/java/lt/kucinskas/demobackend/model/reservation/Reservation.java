@@ -2,6 +2,8 @@ package lt.kucinskas.demobackend.model.reservation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +22,10 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "employee_id", columnDefinition = "INT NOT NULL")
+    @Column(name = "employee_id", columnDefinition = "BIGINT NOT NULL")
     private Long employeeId;
 
-    @Column(name = "apartment_id", columnDefinition = "INT NOT NULL")
+    @Column(name = "apartment_id", columnDefinition = "BIGINT NOT NULL")
     private Long apartmentId;
 
     @Column(name = "reservation_start_date", columnDefinition = "VARCHAR(50) NOT NULL")
@@ -32,8 +34,9 @@ public class Reservation {
     @Column(name = "reservation_end_date", columnDefinition = "VARCHAR(50) NOT NULL")
     private String reservationEndDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "reservation_status", columnDefinition = "NOT NULL")
-    private String reservationStatus;
+    private ReservationStatus reservationStatus;
 
     @Column(name = "notes", columnDefinition = "VARCHAR(255) NOT NULL")
     private String notes;

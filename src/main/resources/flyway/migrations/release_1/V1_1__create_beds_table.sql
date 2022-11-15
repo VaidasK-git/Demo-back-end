@@ -4,7 +4,7 @@ CREATE TYPE bedSize AS ENUM ('Twin', 'Twin XL', 'Full', 'Queen', 'King', 'Califo
 
 CREATE TABLE reservation.beds
 (
-    id         SERIAL,
+    id         BIGSERIAL NOT NULL,
     bed_size   bedSize NOT NULL,
     created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),

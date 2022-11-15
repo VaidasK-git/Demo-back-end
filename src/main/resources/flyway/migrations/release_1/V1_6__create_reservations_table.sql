@@ -4,9 +4,9 @@ CREATE TYPE reservationStatus AS ENUM ('PENDING', 'ACCEPTED', 'DENIED', 'CANCELL
 
 CREATE TABLE reservation.reservations
 (
-    id                     SERIAL,
-    employee_id            INTEGER      NOT NULL,
-    apartment_id           INTEGER      NOT NULL,
+    id                     BIGSERIAL NOT NULL,
+    employee_id            BIGINT      NOT NULL,
+    apartment_id           BIGINT       NOT NULL,
     reservation_start_date VARCHAR(50)  NOT NULL,
     reservation_end_date   VARCHAR(50)  NOT NULL,
     reservation_status     reservationStatus       NOT NULL,
