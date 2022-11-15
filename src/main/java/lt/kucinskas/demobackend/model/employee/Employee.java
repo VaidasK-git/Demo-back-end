@@ -1,17 +1,25 @@
 package lt.kucinskas.demobackend.model.employee;
 
-import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import lombok.Data;
 import lt.kucinskas.demobackend.model.picture.Picture;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.*;
+
 
 @Data
 @Entity
-@Table(name="employees", schema = "reservation")
-public class Employee{
+@Table(name = "employees", schema = "reservation")
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,11 +50,11 @@ public class Employee{
     private String employeeRole;
 
     @CreatedDate
-    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "updated_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
 }
