@@ -23,9 +23,9 @@
 		<jxr.version>3.3.0</jxr.version>
 		<postgresql.version>42.5.0</postgresql.version>
 
-		<database.url>jdbc:postgresql://localhost:5432/postgres</database.url>
-		<database.user>myusername</database.user>
-		<database.password>mypassword</database.password>
+		<database.url>jdbc:postgresql://localhost:5432/demo</database.url>
+		<database.user>user</database.user>
+		<database.password>password</database.password>
 
 	</properties>
 	<dependencies>

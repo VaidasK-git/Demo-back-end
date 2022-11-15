@@ -9,4 +9,3 @@ CREATE TABLE beds
     room_id    BIGINT,
     CONSTRAINT pk_beds PRIMARY KEY (id)
 );
-
