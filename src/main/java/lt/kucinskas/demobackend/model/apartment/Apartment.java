@@ -18,45 +18,47 @@ public class Apartment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "country")
+    @Column(name = "country", columnDefinition = "VARCHAR(50) NOT NULL")
     private String country;
 
-    @Column(name = "city")
+    @Column(name = "city", columnDefinition = "VARCHAR(50) NOT NULL")
     private String city;
 
-    @Column(name = "street_name")
+    @Column(name = "street_name", columnDefinition = "VARCHAR(50) NOT NULL")
     private String streetName;
 
-    @Column(name = "house_number")
+    @Column(name = "house_number", columnDefinition = "VARCHAR(50) NOT NULL")
     private String houseNumber;
 
-    @Column(name = "flat_number")
+    @Column(name = "flat_number", columnDefinition = "VARCHAR(50) NOT NULL")
     private String flatNumber;
 
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", columnDefinition = "VARCHAR(50) NOT NULL")
     private String zipCode;
 
-    @Column(name = "latitude")
+    @Column(name = "latitude", columnDefinition = "VARCHAR(50) NOT NULL")
     private String latitude;
 
-    @Column(name = "longitude")
+    @Column(name = "longitude", columnDefinition = "VARCHAR(50) NOT NULL")
     private String longitude;
 
     @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
+    @Column(name = "rooms")
     private List<Room> rooms = new ArrayList<>();
 
     @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL)
+    @Column(name = "pictures")
     private List<Picture> pictures;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "VARCHAR(50) NOT NULL")
     private String description;
 
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
 }

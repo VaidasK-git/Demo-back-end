@@ -15,15 +15,16 @@ public class Bed {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "bed_size")
+    @Column(name = "bed_size", columnDefinition = "VARCHAR(50) NOT NULL")
+    @Enumerated(EnumType.STRING)
     private BedSize bedSize;
 
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
     @ManyToOne

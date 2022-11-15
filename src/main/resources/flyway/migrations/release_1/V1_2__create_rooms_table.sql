@@ -2,10 +2,10 @@ CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREM
 
 CREATE TABLE reservation.rooms
 (
-    id           BIGINT NOT NULL,
-    room_name    VARCHAR(255),
-    created_at   VARCHAR(255),
-    updated_at   VARCHAR(255),
+    id           SERIAL,
+    room_name    VARCHAR(50) NOT NULL,
+    created_at   TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    updated_at   TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
     apartment_id BIGINT,
     CONSTRAINT pk_rooms PRIMARY KEY (id)
 );

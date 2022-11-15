@@ -1,17 +1,19 @@
 CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREMENT BY 1;
 
+CREATE TYPE employeeRole AS ENUM ('User', 'Squad Lead', 'Group Lead', 'Administrator');
+
 CREATE TABLE reservation.employees
 (
-    id            BIGINT NOT NULL,
-    first_name    VARCHAR(255),
-    last_name     VARCHAR(255),
-    sex           VARCHAR(255),
-    picture       BIGINT,
-    squad_lead_id BIGINT,
-    phone_number  VARCHAR(255),
-    email         VARCHAR(255),
-    employee_role VARCHAR(255),
-    created_at    VARCHAR(255),
-    updated_at    VARCHAR(255),
+    id            SERIAL,
+    first_name    VARCHAR(50) NOT NULL,
+    last_name     VARCHAR(50) NOT NULL,
+    sex           VARCHAR(50) NOT NULL,
+    picture_id    BIGINT,
+    squad_lead_id INTEGER     NOT NULL,
+    phone_number  VARCHAR(50) NOT NULL,
+    email         VARCHAR(50) NOT NULL,
+    employee_role employeeRole NOT NULL,
+    created_at    TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    updated_at    TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
     CONSTRAINT pk_employees PRIMARY KEY (id)
 );

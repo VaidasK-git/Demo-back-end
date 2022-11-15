@@ -17,18 +17,18 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name= "room_name")
+    @Column(name= "room_name", columnDefinition = "VARCHAR(50) NOT NULL")
     private String roomName;
 
     @OneToMany (mappedBy = "room", cascade = CascadeType.ALL)
     private List<Bed> beds = new ArrayList<>();
 
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
     @ManyToOne

@@ -17,36 +17,36 @@ public class Employee{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", columnDefinition = "VARCHAR(50) NOT NULL")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", columnDefinition = "VARCHAR(50) NOT NULL")
     private String lastName;
 
-    @Column(name = "sex")
+    @Column(name = "sex", columnDefinition = "VARCHAR(50) NOT NULL")
     private String sex;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Picture picture;
 
-    @Column(name = "squad_lead_id")
+    @Column(name = "squad_lead_id", columnDefinition = "INT NOT NULL")
     private Long squadLeadId;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", columnDefinition = "VARCHAR(50) NOT NULL")
     private String phoneNumber;
 
-    @Column(name = "email")
+    @Column(name = "email", columnDefinition = "VARCHAR(50) NOT NULL")
     private String email;
 
     @Column(name = "employee_role")
     private String employeeRole;
 
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
 }

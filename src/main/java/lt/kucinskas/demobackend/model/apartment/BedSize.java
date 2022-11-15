@@ -1,5 +1,6 @@
 package lt.kucinskas.demobackend.model.apartment;
 
+
 public enum BedSize {
 
     TWIN ("Twin"),

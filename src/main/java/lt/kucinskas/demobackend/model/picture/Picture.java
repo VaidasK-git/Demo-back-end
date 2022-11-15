@@ -17,18 +17,18 @@ public class Picture {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name ="url")
+    @Column(name ="url", columnDefinition = "VARCHAR(50) NOT NULL")
     private String url;
 
-    @Column(name = "picture_role")
+    @Column(name = "picture_role", columnDefinition = "VARCHAR(50) NOT NULL")
     private PictureRole pictureRole;
 
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private String updatedAt;
 
     @ManyToOne
