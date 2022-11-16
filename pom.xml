@@ -20,7 +20,7 @@
 		<checkstyle.version>3.2.0</checkstyle.version>
 		<postgresql.version>42.5.0</postgresql.version>
 
-		<database.url>jdbc:postgresql://localhost:5432/demo</database.url>
+		<database.url>jdbc:postgresql://localhost:5432/reservation</database.url>
 		<database.user>user</database.user>
 		<database.password>password</database.password>
 
