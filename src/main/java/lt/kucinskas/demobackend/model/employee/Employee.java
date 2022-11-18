@@ -1,5 +1,6 @@
 package lt.kucinskas.demobackend.model.employee;
 
+import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lt.kucinskas.demobackend.model.picture.Picture;
+import lt.kucinskas.demobackend.model.reservation.Reservation;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -53,10 +55,13 @@ public class Employee {
 
     @CreatedDate
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String updatedAt;
+    private LocalDateTime updatedAt;
+
+    @OneToOne
+    private Reservation reservation;
 
 }

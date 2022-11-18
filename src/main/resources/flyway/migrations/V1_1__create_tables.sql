@@ -13,18 +13,19 @@ CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREM
 
 CREATE TABLE reservation.apartments
 (
-    id           BIGSERIAL   NOT NULL,
-    country      country     NOT NULL,
-    city         city        NOT NULL,
-    street_name  VARCHAR(50) NOT NULL,
-    house_number VARCHAR(50) NOT NULL,
-    flat_number  VARCHAR(50) NOT NULL,
-    zip_code     VARCHAR(50) NOT NULL,
-    latitude     VARCHAR(50) NOT NULL,
-    longitude    VARCHAR(50) NOT NULL,
-    description  VARCHAR(50) NOT NULL,
-    created_at   TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
-    updated_at   TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    id             BIGSERIAL   NOT NULL,
+    country        country     NOT NULL,
+    city           city        NOT NULL,
+    street_name    VARCHAR(50) NOT NULL,
+    house_number   VARCHAR(50) NOT NULL,
+    flat_number    VARCHAR(50) NOT NULL,
+    zip_code       VARCHAR(50) NOT NULL,
+    latitude       VARCHAR(50) NOT NULL,
+    longitude      VARCHAR(50) NOT NULL,
+    description    VARCHAR(50) NOT NULL,
+    created_at     TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    updated_at     TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    reservation_id BIGINT,
     CONSTRAINT pk_apartments PRIMARY KEY (id)
 );
 
@@ -68,17 +69,18 @@ CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREM
 
 CREATE TABLE reservation.employees
 (
-    id            BIGSERIAL    NOT NULL,
-    first_name    VARCHAR(50)  NOT NULL,
-    last_name     VARCHAR(50)  NOT NULL,
-    sex           VARCHAR(50)  NOT NULL,
-    picture_id    BIGINT,
-    squad_lead_id BIGINT       NOT NULL,
-    phone_number  VARCHAR(50)  NOT NULL,
-    email         VARCHAR(50)  NOT NULL,
-    employee_role employeeRole NOT NULL,
-    created_at    TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
-    updated_at    TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    id             BIGSERIAL    NOT NULL,
+    first_name     VARCHAR(50)  NOT NULL,
+    last_name      VARCHAR(50)  NOT NULL,
+    sex            VARCHAR(50)  NOT NULL,
+    picture_id     BIGINT,
+    squad_lead_id  BIGINT       NOT NULL,
+    phone_number   VARCHAR(50)  NOT NULL,
+    email          VARCHAR(50)  NOT NULL,
+    employee_role  employeeRole NOT NULL,
+    created_at     TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    updated_at     TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
+    reservation_id BIGINT,
     CONSTRAINT pk_employees PRIMARY KEY (id)
 );
 
@@ -114,8 +116,8 @@ CREATE SEQUENCE IF NOT EXISTS reservation.hibernate_sequence START WITH 1 INCREM
 CREATE TABLE reservation.reservations
 (
     id                     BIGSERIAL         NOT NULL,
-    employee_id            BIGINT            NOT NULL,
-    apartment_id           BIGINT            NOT NULL,
+    employee_id_id         BIGINT,
+    apartment_id_id        BIGINT,
     reservation_start_date VARCHAR(50)       NOT NULL,
     reservation_end_date   VARCHAR(50)       NOT NULL,
     reservation_status     reservationStatus NOT NULL,
@@ -124,3 +126,9 @@ CREATE TABLE reservation.reservations
     updated_at             TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
     CONSTRAINT pk_reservations PRIMARY KEY (id)
 );
+
+ALTER TABLE reservation.apartments
+    ADD CONSTRAINT FK_APARTMENTS_ON_RESERVATION FOREIGN KEY (reservation_id) REFERENCES reservation.reservations (id);
+
+ALTER TABLE reservation.employees
+    ADD CONSTRAINT FK_EMPLOYEES_ON_RESERVATION FOREIGN KEY (reservation_id) REFERENCES reservation.reservations (id);

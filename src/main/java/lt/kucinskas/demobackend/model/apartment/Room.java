@@ -1,5 +1,6 @@
 package lt.kucinskas.demobackend.model.apartment;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -33,11 +34,11 @@ public class Room {
 
     @CreatedDate
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     private Apartment apartment;

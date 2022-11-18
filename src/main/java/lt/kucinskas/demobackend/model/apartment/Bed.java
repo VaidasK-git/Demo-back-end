@@ -1,5 +1,6 @@
 package lt.kucinskas.demobackend.model.apartment;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -29,11 +30,11 @@ public class Bed {
 
     @CreatedDate
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     private Room room;
